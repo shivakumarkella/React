@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Learning React",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "parcel helloWorld.html",
+    "prod": "parcel build helloWorld.html"
   },
   "repository": {
     "type": "git",
