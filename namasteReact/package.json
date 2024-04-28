@@ -1,0 +1,26 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivakumarkella/React.git#27cc1441fcefabf53fa137aaf049171fcc3b5e91"
+  },
+  "author": "Shiva Kumar Kella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shivakumarkella/React/issues"
+  },
+  "homepage": "https://github.com/shivakumarkella/React/tree/27cc1441fcefabf53fa137aaf049171fcc3b5e91#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
