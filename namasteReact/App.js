@@ -1,21 +1,71 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import restaurants from "./restaurants";
 
-const header = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello World , jai Shree Ram"
-);
-
-const Title = () => {
-  return <h1>This is the title of the page, nested Component</h1>;
+//headerComponent
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?size=large"
+        ></img>
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
 };
-//create react-functional element
-const HeaderJsx = () => (
-  <div>
-    <Title />
-    <h1>Om Namha Shivayaaa . . functional</h1>
-  </div>
-);
+
+const RestaurantCard = (props) => {
+  const restaurant = props.resData.info;
+  const { cloudinaryImageId, name, cuisines, avgRating, sla } = restaurant;
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        src={
+          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+          cloudinaryImageId
+        }
+      />
+      <h3>{name} </h3>
+      <h4>{cuisines.join(",")}</h4>
+      <h4>{avgRating + " Stars"} </h4>
+      <h4>{sla.slaString}</h4>
+    </div>
+  );
+};
+
+//Body Component
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="searchbar-container">search bar</div>
+      <div className="restaurant-container">
+        {restaurants.map((restaurant) => (
+          <RestaurantCard resData={restaurant} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="App">
+      <Header />
+      <Body />
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeaderJsx />);
+root.render(<AppLayout />);
