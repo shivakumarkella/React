@@ -28,7 +28,7 @@
   width: 200px;
   height: 300px;
   border: 1px solid ridge;
-  background-color: beige;
+  background-color: #f0f0f0;
   padding: 5px;
 }
 
@@ -51,4 +51,23 @@
 
 .searchbar-container {
   border: 2px solid black;
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.shimmer-ui-card {
+  width: 200px;
+  height: 300px;
+  border: 1px solid gray;
+  background-color: #f0f0f0;
+  padding: 5px;
+}
+
+.shimmer-ui-card:hover {
+  cursor: pointer;
+  border: 2px solid blue;
 }
