@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const Body = () => {
   const [list, setList] = useState([]);
+  const [searchText, setSearchText] = useState("Search . . . ");
   const [originalRestaurants, setoriginalRestaurants] = useState([]);
 
   useEffect(() => {
@@ -25,6 +26,25 @@ const Body = () => {
   return (
     <div className="body">
       <div className="searchbar-container">
+        <input
+          type="text"
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
+        <button
+          type="submit"
+          onClick={() => {
+            const filteredList = originalRestaurants.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setList(filteredList);
+          }}
+        >
+          Search Restaurants
+        </button>
+
         <button
           onMouseEnter={() => {
             const filteredList = list.filter((res) => res.info.avgRating > 4.5);

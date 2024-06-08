@@ -59,6 +59,10 @@ button {
   cursor: pointer;
 }
 
+#btnSignIn {
+  height: 55px;
+}
+
 .shimmer-ui-card {
   width: 200px;
   height: 300px;
