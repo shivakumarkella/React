@@ -1,12 +1,18 @@
-import React, { Children } from "react";
+import React, { Children, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Aboutus from "./components/Aboutus";
-import Contactus from "./components/Contactus";
+// import Contactus from "./components/Contactus";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Suspense } from "react";
+import ShimmerUiCard from "./components/ShimmerUiCard";
+
+//const Contactus = lazy(() => import("./components/Contactus"));
+
+const Contactus = lazy(() => import("./components/Contactus"));
 
 const AppLayout = () => {
   return (
@@ -32,7 +38,17 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contactus />,
+        element: (
+          <Suspense
+            fallback={
+              <p>
+                <i>Loading...</i>
+              </p>
+            }
+          >
+            <Contactus />
+          </Suspense>
+        ),
       },
       {
         path: "/Restaurant/:resId",
