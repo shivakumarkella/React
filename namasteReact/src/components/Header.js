@@ -6,23 +6,24 @@ const Header = () => {
   const [auth, setAuth] = useState("Click Here to Sign In");
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL}></img>
+    <div className="flex justify-between bg-gray-100">
+      <div className="w-[150px] bg-center py-2">
+        <img className=" rounded-full" src={LOGO_URL}></img>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div>
+        <ul className="flex m-10 place-content-center">
+          <li className="px-5">
             <Link to={"/"}>Home</Link>
           </li>
-          <li>
+          <li className="px-5">
             <Link to={"/about"}>About Us</Link>
           </li>
-          <li>
+          <li className="px-5">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-5">Cart</li>
           <button
+            className=" bg-gray-400 py-1 px-2 rounded-xl font-semibold"
             id="btnSignIn"
             onClick={() => {
               auth === "Login" ? setAuth("Log out") : setAuth("Login");
