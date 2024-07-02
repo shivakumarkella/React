@@ -6,7 +6,7 @@ const Header = () => {
   const [auth, setAuth] = useState("Click Here to Sign In");
 
   return (
-    <div className="flex justify-between bg-gray-100">
+    <div className="flex justify-between bg-gray-300">
       <div className="w-[150px] bg-center py-2">
         <img className=" rounded-full" src={LOGO_URL}></img>
       </div>

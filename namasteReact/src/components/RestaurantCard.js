@@ -1,14 +1,14 @@
+import React from "react";
 import { CLOUDINARY_IMAGE_URL } from "../utils/constants";
-import { Link } from "react-router-dom";
 
 const RestaurantCard = (props) => {
-  const restaurant = props.resData.info;
-  const { cloudinaryImageId, name, cuisines, avgRating, sla } = restaurant;
+  const { cloudinaryImageId, name, cuisines, avgRating, sla } =
+    props.resData.info;
 
   return (
     <div className="w-[250px] h-[370px] m-2 bg-gray-300 rounded-xl overflow-hidden">
       <img
-        className="w-full h-1/2 rounded-t-xl "
+        className="w-full h-[50%] rounded-t-xl"
         src={CLOUDINARY_IMAGE_URL + cloudinaryImageId}
         alt={name}
       />
@@ -22,4 +22,18 @@ const RestaurantCard = (props) => {
   );
 };
 
+const topRestaurant = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="bg-black text-white absolute m-0 rounded">
+          Wow Rating
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
+export { topRestaurant };
 export default RestaurantCard;
