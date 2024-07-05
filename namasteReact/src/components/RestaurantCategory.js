@@ -31,7 +31,9 @@ const RestaurantCategory = ({ data }) => {
                 </div>
               )}
             </div>
-            {showItems && <ItemList data={data} />}
+            {data?.itemCards?.map(
+              (item) => showItems && <ItemList item={item} />
+            )}
 
             {data?.categories?.length > 0 &&
               data.categories.map((category) => (

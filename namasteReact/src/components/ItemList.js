@@ -1,7 +1,7 @@
 import { CLOUDINARY_IMAGE_URL } from "../utils/constants";
 
-const ItemList = ({ data }) => {
-  return data?.itemCards?.map((item) => (
+const ItemList = ({ item }) => {
+  return (
     <div
       key={item.id}
       className="p-5 shadow-lg mb-4 rounded-lg flex items-center"
@@ -56,7 +56,7 @@ const ItemList = ({ data }) => {
         </button>
       </div>
     </div>
-  ));
+  );
 };
 
 export default ItemList;
