@@ -6,6 +6,8 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const [Restaurantinfo, setRestaurantinfo] = useState(null);
   const { resId } = useParams();
+  const [showIndex, setShowIndex] = useState();
+  let categories;
   useEffect(() => {
     fetchRestaurantMenu();
   }, []);
@@ -23,8 +25,6 @@ const RestaurantMenu = () => {
     }
   };
 
-  let categories;
-
   if (Restaurantinfo === null) {
     return <p>menu about to load</p>;
   } else {
@@ -41,6 +41,7 @@ const RestaurantMenu = () => {
         }
       );
   }
+
   return (
     <div className=" space-y-6 w-6/12 m-auto flxe h-screen">
       <span> </span>
@@ -51,10 +52,14 @@ const RestaurantMenu = () => {
         <h1 className=" font-semibold text-center">
           {Restaurantinfo.data.cards[2].card.card.info.costForTwoMessage}
         </h1>
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <RestaurantCategory
             key={category?.card?.card?.title}
             data={category?.card?.card}
+            showItems={index === showIndex ? true : false}
+            setShowIndex={() =>
+              setShowIndex(showIndex === index ? null : index)
+            }
           />
         ))}
       </div>

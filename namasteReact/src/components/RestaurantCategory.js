@@ -1,8 +1,7 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(true);
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   return (
     <div className="mb-4">
       <div className="py-2 px-4 bg-slate-100 rounded-t-lg">
@@ -24,7 +23,7 @@ const RestaurantCategory = ({ data }) => {
                 <div
                   className="text-gray-600 mr-5 cursor-pointer"
                   onClick={() => {
-                    setShowItems(!showItems);
+                    setShowIndex();
                   }}
                 >
                   ▼
@@ -32,7 +31,7 @@ const RestaurantCategory = ({ data }) => {
               )}
             </div>
             {data?.itemCards?.map(
-              (item) => showItems && <ItemList item={item} />
+              (item, index) => showItems && <ItemList key={index} item={item} />
             )}
 
             {data?.categories?.length > 0 &&
