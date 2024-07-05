@@ -31,7 +31,7 @@ const RestaurantCategory = ({ data }) => {
                 </div>
               )}
             </div>
-            {<ItemList data={data} />}
+            {showItems && <ItemList data={data} />}
 
             {data?.categories?.length > 0 &&
               data.categories.map((category) => (
