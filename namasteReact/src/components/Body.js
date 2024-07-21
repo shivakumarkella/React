@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import RestaurantCard, { topRestaurant } from "./RestaurantCard";
 import ShimmerUiCard from "./ShimmerUiCard";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [list, setList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
-  const TopRestaurantCard = topRestaurant(RestaurantCard); // Using topRestaurant HOC
+  const TopRestaurantCard = topRestaurant(RestaurantCard);
 
   useEffect(() => {
     fetchSwiggyData();
@@ -73,6 +74,12 @@ const Body = () => {
         >
           Filter The Best Restaurants
         </button>
+        <label>User Name : </label>
+        <input
+          type="text"
+          className="border border-black p-3"
+          onChange={(e) => console.log(e.target.value)}
+        ></input>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 p-4">

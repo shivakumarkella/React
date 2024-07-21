@@ -1,25 +1,34 @@
-import React, { Children, lazy, Suspense } from "react";
+import React, { Children, lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Aboutus from "./components/Aboutus";
-// import Contactus from "./components/Contactus";
+import { useState, useEffect } from "react";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Suspense } from "react";
-import ShimmerUiCard from "./components/ShimmerUiCard";
-
-//const Contactus = lazy(() => import("./components/Contactus"));
+import UserContext from "./utils/UserContext";
 
 const Contactus = lazy(() => import("./components/Contactus"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Shiva Kumar Kella",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className="App">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={userName}>
+      <div className="App">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

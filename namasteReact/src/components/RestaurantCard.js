@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CLOUDINARY_IMAGE_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
+  const userName = useContext(UserContext);
   const { cloudinaryImageId, name, cuisines, avgRating, sla } =
     props.resData.info;
 
@@ -17,6 +19,7 @@ const RestaurantCard = (props) => {
         <h4 className="whitespace-normal">{cuisines.join(", ")}</h4>
         <h4>{avgRating} Stars</h4>
         <h4>{sla.slaString}</h4>
+        <h4>{userName}</h4>
       </div>
     </div>
   );

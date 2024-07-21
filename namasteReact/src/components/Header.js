@@ -1,9 +1,11 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [auth, setAuth] = useState("Click Here to Sign In");
+  const userName = useContext(UserContext);
 
   return (
     <div className="flex justify-between bg-gray-300">
@@ -22,6 +24,7 @@ const Header = () => {
             <Link to={"/contact"}>Contact Us</Link>
           </li>
           <li className="px-5">Cart</li>
+          <li className="px-5 font-bold p-4">{userName}</li>
           <button
             className=" bg-gray-400 py-1 px-2 rounded-xl font-semibold"
             id="btnSignIn"
