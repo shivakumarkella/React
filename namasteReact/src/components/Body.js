@@ -9,6 +9,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [originalRestaurants, setOriginalRestaurants] = useState([]);
   const TopRestaurantCard = topRestaurant(RestaurantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchSwiggyData();
@@ -77,8 +78,9 @@ const Body = () => {
         <label>User Name : </label>
         <input
           type="text"
+          value={loggedInUser}
           className="border border-black p-3"
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => setUserName(e.target.value)}
         ></input>
       </div>
 

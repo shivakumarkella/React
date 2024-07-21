@@ -1,4 +1,4 @@
-import React, { Children, lazy, Suspense, useState } from "react";
+import React, { Children, lazy, Suspense, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -23,7 +23,7 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={userName}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="App">
         <Header />
         <Outlet />
