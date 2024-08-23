@@ -1,0 +1,5 @@
+<DIV style="TOP: 0px; LEFT: 0px" class="component EditorCheckBox"   ref="EditorCheckBox" condition origL="0px" origT="0px">
+  <INPUT id=CheckBox1 value="1000" type=checkbox name=CheckBox1 >
+  <SPAN style="CURSOR: default" class=notRequired >Checkbox Text</SPAN>
+</DIV>
+

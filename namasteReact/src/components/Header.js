@@ -23,8 +23,7 @@ const Header = () => {
           <li className="px-5">
             <Link to={"/contact"}>Contact Us</Link>
           </li>
-          <li className="px-5">Cart</li>
-          <li className="px-5 font-bold p-4">{loggedInUser}</li>
+          <li className="px-5 font-bold ">🛒 - (0)</li>
           <button
             className=" bg-gray-400 py-1 px-2 rounded-xl font-semibold"
             id="btnSignIn"

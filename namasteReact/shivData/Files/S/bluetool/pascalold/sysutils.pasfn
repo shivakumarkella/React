@@ -1,0 +1,1 @@
+function Format(const s: string; const params: array of const): string;

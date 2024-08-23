@@ -1,0 +1,2 @@
+function GetXmlField( const XmlStr: string; const Nodes: array of string; const Node, Default: string ): string;
+function GetXmlNodeValueList( const XmlStr: string; const NodePath: string; var ValueList: TStringList ): boolean;
